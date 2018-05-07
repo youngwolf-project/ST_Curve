@@ -1,0 +1,196 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+#include "verrsrc.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "#include ""verrsrc.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""ST_Curve.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,2,0,7
+ PRODUCTVERSION 2,2,0,7
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "ST_Curve Studio(www.st-curve.cn)"
+            VALUE "FileDescription", "ST_Curve main component"
+            VALUE "FileVersion", "2.2.0.7"
+            VALUE "InternalName", "ST_Curve"
+            VALUE "LegalCopyright", "ST_Curve (C)2008-2017 young wolf. All rights reserved."
+            VALUE "LegalTrademarks", "ST_Curve"
+            VALUE "OriginalFilename", "ST_Curve.ocx"
+            VALUE "ProductName", "ST_Curve"
+            VALUE "ProductVersion", "2.2.0.7"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ST_CURVE            BITMAP                  "res\\ST_CurveCtrl.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROPPAGE_ST_CURVE DIALOGEX 0, 0, 190, 42
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "ST_Curve (C)2008-2017 young wolf. All rights reserved.",IDC_STATIC,7,17,177,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PROPPAGE_ST_CURVE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 184
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 35
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_ZOOMIN              CURSOR                  "res\\ZoomIn.cur"
+
+IDC_ZOOMOUT             CURSOR                  "res\\ZoomInOut.cur"
+
+IDC_MOVE                CURSOR                  "res\\hmove.cur"
+
+IDC_DRAG                CURSOR                  "res\\hdrag.cur"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_PROPPAGE_ST_CURVE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ST_CURVE            "ST_Curve Control"
+    IDS_ST_CURVE_PPG        "ST_Curve Property Page"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ST_CURVE_PPG_CAPTION "常规"
+    IDS_TIME                "时间"
+    IDS_LEGEND              "图例"
+    IDS_FOOTNOTE            "    第%d页  共%d页"
+    IDS_WRITEFILEFAIL       "无法写入文件！"
+    IDS_OVERFLOW            "溢出"
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "ST_Curve.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

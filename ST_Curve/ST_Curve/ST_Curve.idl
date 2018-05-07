@@ -1,0 +1,307 @@
+// ST_Curve.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ST_Curve.tlb)，该类型库将成为
+// ST_Curve.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+#include "conf.h"
+
+[ uuid(CE831ABA-2476-4C2B-A544-CCF3BAF7480F), version(1.0),
+  control ]
+library ST_CurveLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  CST_CurveCtrl 的主调度接口
+	[ 
+		uuid(B8F65D5C-CA0B-494F-8B39-6CB7E10A2DD4)
+	]
+	dispinterface _DST_Curve
+	{
+		properties:
+			[id(1)] ST_OLE_COLOR ForeColor;
+			[id(2)] ST_OLE_COLOR BackColor;
+			[id(3)] ST_OLE_COLOR AxisColor;
+			[id(4)] ST_OLE_COLOR GridColor;
+			[id(5)] long PageChangeMSG;
+			[id(6)] ST_OLE_HANDLE MSGRecWnd;
+			[id(7)] ST_OLE_COLOR TitleColor;
+			[id(8)] ST_OLE_COLOR FootNoteColor;
+			[id(232)] ST_OLE_HANDLE Register1;
+		methods:
+			[id(9)] VARIANT_BOOL SetVInterval(short VInterval);
+			[id(10)] VARIANT_BOOL SetHInterval(short HInterval);
+			[id(11)] short GetScaleInterval();
+			[id(12)] void EnableHelpTip(VARIANT_BOOL bEnable);
+			[id(13)] VARIANT_BOOL SetLegendSpace(short LegendSpace);
+			[id(14)] short GetLegendSpace();
+			[id(15)] VARIANT_BOOL SetBeginValue(float fBeginValue);
+			[id(16)] float GetBeginValue();
+			[id(17)] VARIANT_BOOL SetBeginTime(BSTR pBeginTime);
+			[id(18)] VARIANT_BOOL SetBeginTime2(HCOOR_TYPE fBeginTime);
+			[id(19)] BSTR GetBeginTime();
+			[id(20)] HCOOR_TYPE GetBeginTime2();
+			[id(21)] VARIANT_BOOL SetTimeSpan(double TimeStep);
+			[id(22)] double GetTimeSpan();
+			[id(23)] VARIANT_BOOL SetValueStep(float ValueStep);
+			[id(24)] float GetValueStep();
+			[id(25)] VARIANT_BOOL SetVPrecision(short Precision);
+			[id(26)] short GetVPrecision();
+			[id(27)] VARIANT_BOOL SetUnit(BSTR pUnit);
+			[id(28)] BSTR GetUnit();
+			[id(29)] void TrimCoor();
+			[id(30)] short AddLegend(long Id, BSTR pSign, ST_OLE_COLOR PenColor, short PenStyle, short LineWidth, ST_OLE_COLOR BrushColor, short BrushStyle, short CurveMode, short NodeMode, short Mask, VARIANT_BOOL bUpdate);
+			[id(31)] VARIANT_BOOL GetLegend(BSTR pSign, ST_OLE_COLOR* pPenColor, short* pPenStyle, short* pLineWidth, ST_OLE_COLOR* pBrushColor, short* pBrushStyle, short* pCurveMode, short* pNodeMode);
+			[id(32)] BSTR QueryLegend(long Id);
+			[id(33)] short GetLegendCount();
+			[id(34)] VARIANT_BOOL GetLegend2(short nIndex, ST_OLE_COLOR* pPenColor, short* pPenStyle, short* pLineWidth, ST_OLE_COLOR* pBrushColor, short* pBrushStyle, short* pCurveMode, short* pNodeMode);
+			[id(35)] short GetLegendIdCount(short nIndex);
+			[id(36)] long GetLegendId(short nIndex, short nIdIndex);
+			[id(37)] VARIANT_BOOL DelLegend(long Id, VARIANT_BOOL bAll, VARIANT_BOOL bUpdate);
+			[id(38)] VARIANT_BOOL DelLegend2(BSTR pSign, VARIANT_BOOL bUpdate);
+			[id(39)] short AddMainData(long Id, BSTR pTime, float Value, short State, short VisibleState, VARIANT_BOOL bAddTrail);
+			[id(40)] short AddMainData2(long Id, HCOOR_TYPE Time, float Value, short State, short VisibleState, VARIANT_BOOL bAddTrail);
+			[id(41)] void SetVisibleCoorRange(HCOOR_TYPE MinTime, HCOOR_TYPE MaxTime, float MinValue, float MaxValue, short Mask);
+			[id(42)] void GetVisibleCoorRange(HCOOR_TYPE* pMinTime, HCOOR_TYPE* pMaxTime, float* pMinValue, float* pMaxValue);
+			[id(43)] void DelRange(long Id, HCOOR_TYPE BTime, HCOOR_TYPE ETime, short Mask, VARIANT_BOOL bAll, VARIANT_BOOL bUpdate);
+			[id(44)] void DelRange2(long Id, long nBegin, long nCount, VARIANT_BOOL bAll, VARIANT_BOOL bUpdate);
+			[id(45)] VARIANT_BOOL FirstPage(VARIANT_BOOL bLast, VARIANT_BOOL bUpdate);
+			[id(46)] short GotoPage(short RelativePage, VARIANT_BOOL bUpdate);
+			[id(47)] VARIANT_BOOL SetZoom(short Zoom);
+			[id(48)] short GetZoom();
+			[id(49)] VARIANT_BOOL SetMaxLength(long MaxLength, long CutLength);
+			[id(50)] long GetMaxLength();
+			[id(51)] long GetCutLength();
+			[id(52)] VARIANT_BOOL SetShowMode(short ShowMode);
+			[id(53)] short GetShowMode();
+			[id(54)] VARIANT_BOOL SetBkBitmap(short nIndex);
+			[id(55)] short GetBkBitmap();
+			[id(56)] VARIANT_BOOL SetFillDirection(long Id, short FillDirection, VARIANT_BOOL bUpdate);
+			[id(57)] short GetFillDirection(long Id);
+			[id(58)] VARIANT_BOOL SetMoveMode(short MoveMode);
+			[id(59)] short GetMoveMode();
+			[id(60)] void SetFont(ST_OLE_HANDLE hFont);
+			[id(61)] VARIANT_BOOL AddImageHandle(BSTR pFileName, VARIANT_BOOL bShared);
+			[id(62)] void AddBitmapHandle(ST_OLE_HANDLE hBitmap, VARIANT_BOOL bShared);
+			[id(63)] VARIANT_BOOL AddBitmapHandle2(ST_OLE_HANDLE hInstance, BSTR pszResourceName, VARIANT_BOOL bShared);
+			[id(64)] VARIANT_BOOL AddBitmapHandle3(ST_OLE_HANDLE hInstance, long nIDResource, VARIANT_BOOL bShared);
+			[id(65)] long GetBitmapCount();
+			[id(66)] VARIANT_BOOL SetBkMode(short BkMode);
+			[id(67)] short GetBkMode();
+			[id(68)] VARIANT_BOOL ExportImage(BSTR pFileName);
+			[id(69)] long ExportImageFromPage(BSTR pFileName, long Id, long nBegin, long nCount, VARIANT_BOOL bAll, short Style);
+			[id(70)] long ExportImageFromTime(BSTR pFileName, long Id, HCOOR_TYPE BTime, HCOOR_TYPE ETime, short Mask, VARIANT_BOOL bAll, short Style);
+			[id(71)] VARIANT_BOOL BatchExportImage(BSTR pFileName, long nSecond);
+			[id(72)] void EnableAutoTrimCoor(VARIANT_BOOL bEnable);
+			[id(73)] long ImportFile(BSTR pFileName, short Style, VARIANT_BOOL bAddTrail);
+			[id(75)] VARIANT_BOOL GetOneTimeRange(long Id, HCOOR_TYPE* pMinTime, HCOOR_TYPE* pMaxTime);
+			[id(76)] VARIANT_BOOL GetOneValueRange(long Id, float* pMinValue, float* pMaxValue);
+			[id(77)] VARIANT_BOOL GetOneFirstPos(long Id, HCOOR_TYPE* pTime, float* pValue, VARIANT_BOOL bLast);
+			[id(78)] VARIANT_BOOL GetTimeRange(HCOOR_TYPE* pMinTime, HCOOR_TYPE* pMaxTime);
+			[id(79)] VARIANT_BOOL GetValueRange(float* pMinValue, float* pMaxValue);
+			[id(80)] void GetViableTimeRange(HCOOR_TYPE* pMinTime, HCOOR_TYPE* pMaxTime);
+			[id(81)] long AddMemMainData(ST_OLE_HANDLE pMemMainData, long MemSize, VARIANT_BOOL bAddTrail);
+			[id(82)] VARIANT_BOOL ShowCurve(long Id, VARIANT_BOOL bShow);
+			[id(84)] void SetFootNote(BSTR pFootNote);
+			[id(85)] BSTR GetFootNote();
+			[id(86)] long TrimCurve(long Id, short State, long nBegin, long nCount, short nStep, VARIANT_BOOL bAll);
+			[id(87)] short PrintCurve(long Id, HCOOR_TYPE BTime, HCOOR_TYPE ETime, short Mask, short LeftMargin, short TopMargin, short RightMargin, short BottomMargin, BSTR pTitle, BSTR pFootNote, short Flag, VARIANT_BOOL bAll);
+			[id(88)] long GetEventMask();
+			[id(89)] long GetScaleNums();
+			[id(90)] long ReportPageInfo();
+			[id(91)] VARIANT_BOOL ShowLegend(BSTR pSign, VARIANT_BOOL bShow);
+			[id(92)] VARIANT_BOOL SelectCurve(long Id, VARIANT_BOOL bSelect);
+			[id(93)] short DragCurve(short xStep, short yStep, VARIANT_BOOL bUpdate);
+			[id(94)] VARIANT_BOOL VCenterCurve(long Id, VARIANT_BOOL bUpdate);
+			[id(95)] VARIANT_BOOL GetSelectedCurve(long* pId);
+			[id(96)] void EnableAdjustZOrder(VARIANT_BOOL bEnable);
+			[id(97)] VARIANT_BOOL IsSelected(long Id);
+			[id(98)] VARIANT_BOOL IsLegendVisible(BSTR pSign);
+			[id(99)] VARIANT_BOOL IsCurveVisible(long Id);
+			[id(100)] VARIANT_BOOL IsCurveInCanvas(long Id);
+			[id(101)] VARIANT_BOOL GotoCurve(long Id);
+			[id(102)] void EnableZoom(VARIANT_BOOL bEnable);
+			[id(103)] long GetCurveLength(long Id);
+			[id(104)] BSTR GetLuaVer();
+			[id(105)] HCOOR_TYPE GetTimeData(short nCurveIndex, long nIndex);
+			[id(106)] float GetValueData(short nCurveIndex, long nIndex);
+			[id(107)] short GetState(short nCurveIndex, long nIndex);
+			[id(108)] VARIANT_BOOL InsertMainData(short nCurveIndex, long nIndex, BSTR pTime, float Value, short State, short Position, short Mask);
+			[id(109)] VARIANT_BOOL InsertMainData2(short nCurveIndex, long nIndex, HCOOR_TYPE Time, float Value, short State, short Position, short Mask);
+			[id(110)] VARIANT_BOOL CanContinueEnum(long Id, short nCurveIndex, long nIndex);
+			[id(111)] VARIANT_BOOL DelPoint(short nCurveIndex, long nIndex);
+			[id(112)] short GetCurveCount();
+			[id(113)] long GetCurve(short nIndex);
+			[id(114)] VARIANT_BOOL RemoveBitmapHandle(ST_OLE_HANDLE hBitmap, VARIANT_BOOL bDel);
+			[id(115)] VARIANT_BOOL RemoveBitmapHandle2(short nIndex, VARIANT_BOOL bDel);
+			[id(116)] ST_OLE_HANDLE GetBitmap(short nIndex);
+			[id(117)] short GetBitmapState(short nIndex);
+			[id(118)] short GetBitmapState2(ST_OLE_HANDLE hBitmap);
+			[id(119)] VARIANT_BOOL SetBuddy(ST_OLE_HANDLE hBuddy, short State);
+			[id(120)] short GetBuddyCount();
+			[id(121)] ST_OLE_HANDLE GetBuddy(short nIndex);
+			[id(122)] void SetCurveTitle(BSTR pCurveTitle);
+			[id(123)] BSTR GetCurveTitle();
+			[id(124)] VARIANT_BOOL SetHUnit(BSTR pHUnit);
+			[id(125)] BSTR GetHUnit();
+			[id(126)] VARIANT_BOOL SetHPrecision(short Precision);
+			[id(127)] short GetHPrecision();
+			[id(128)] VARIANT_BOOL SetCurveIndex(long Id, short nIndex);
+			[id(129)] short GetCurveIndex(long Id);
+			[id(130)] VARIANT_BOOL SetGridMode(short GridMode);
+			[id(131)] short GetGridMode();
+			[id(132)] void SetBenchmark(HCOOR_TYPE Time, float Value);
+			[id(133)] void GetBenchmark(HCOOR_TYPE* pTime, float* pValue);
+			[id(134)] short GetPower(long Id);
+			[id(135)] long TrimCurve2(long Id, short State, HCOOR_TYPE BTime, HCOOR_TYPE ETime, short Mask, short nStep, VARIANT_BOOL bAll);
+			[id(136)] VARIANT_BOOL ChangeId(long Id, long NewId);
+			[id(137)] VARIANT_BOOL CloneCurve(long Id, long NewId);
+			[id(138)] VARIANT_BOOL UniteCurve(long DesId, long nInsertPos, long Id, long nBegin, long nCount);
+			[id(139)] VARIANT_BOOL UniteCurve2(long DesId, long nInsertPos, long Id, HCOOR_TYPE BTime, HCOOR_TYPE ETime, short Mask);
+			[id(140)] VARIANT_BOOL UniteCurve3(long DesId, HCOOR_TYPE fInsertPos, long Id, long nBegin, long nCount);
+			[id(141)] VARIANT_BOOL UniteCurve4(long DesId, HCOOR_TYPE fInsertPos, long Id, HCOOR_TYPE BTime, HCOOR_TYPE ETime, short Mask);
+			[id(142)] VARIANT_BOOL OffSetCurve(long Id, double TimeSpan, float ValueStep, short Operator);
+			[id(143)] long ArithmeticOperate(long DesId, long Id, short Operator);
+			[id(144)] void ClearTempBuff();
+			[id(145)] VARIANT_BOOL PreMallocMem(long Id, long size);
+			[id(146)] long GetMemSize(long Id);
+			[id(147)] VARIANT_BOOL IsCurve(long Id);
+			[id(148)] void SetSorptionRange(short Range);
+			[id(149)] short GetSorptionRange();
+			[id(150)] VARIANT_BOOL IsLegend(BSTR pSign);
+			[id(151)] short AddLegendHelper(long Id, BSTR pSign, ST_OLE_COLOR PenColor, short PenStyle, short LineWidth, VARIANT_BOOL bUpdate);
+			[id(152)] VARIANT_BOOL GetActualPoint(long x, long y, HCOOR_TYPE* pTime, float* pValue);
+			[id(153)] long GetPointFromScreenPoint(long Id, long x, long y, short MaxRange);
+			[id(154)] void EnableFullScreen(VARIANT_BOOL bEnable);
+			[id(155)] HCOOR_TYPE GetEndTime();
+			[id(156)] float GetEndValue();
+			[id(157)] void SetZLength(short ZLength);
+			[id(158)] short GetZLength();
+			[id(159)] VARIANT_BOOL SetCanvasBkBitmap(short nIndex);
+			[id(160)] short GetCanvasBkBitmap();
+			[id(161)] void SetLeftBkColor(ST_OLE_COLOR Color);
+			[id(162)] ST_OLE_COLOR GetLeftBkColor();
+			[id(163)] void SetBottomBkColor(ST_OLE_COLOR Color);
+			[id(164)] ST_OLE_COLOR GetBottomBkColor();
+			[id(165)] VARIANT_BOOL SetZOffset(long Id, short nOffset, VARIANT_BOOL bUpdate);
+			[id(166)] long GetZOffset(long Id);
+			[id(167)] void EnableFocusState(VARIANT_BOOL bEnable);
+			[id(168)] VARIANT_BOOL SetReviseToolTip(short Type);
+			[id(169)] short GetReviseToolTip();
+			[id(170)] long ExportMetaFile(BSTR pFileName, long Id, long nBegin, long nCount, VARIANT_BOOL bAll, short Style);
+			[id(171)] void LimitOnePage(VARIANT_BOOL bLimit);
+			[id(172)] VARIANT_BOOL FixCoor(HCOOR_TYPE MinTime, HCOOR_TYPE MaxTime, float MinValue, float MaxValue, short Mask);
+			[id(173)] short GetFixCoor(HCOOR_TYPE* pMinTime, HCOOR_TYPE* pMaxTime, float* pMinValue, float* pMaxValue);
+			[id(174)] VARIANT_BOOL RefreshLimitedOrFixedCoor();
+			[id(175)] VARIANT_BOOL SetCanvasBkMode(short CanvasBkMode);
+			[id(176)] short GetCanvasBkMode();
+			[id(177)] void EnablePreview(VARIANT_BOOL bEnable);
+			[id(178)] void SetWaterMark(BSTR pWaterMark);
+			[id(179)] long GetSysState();
+			[id(180)] void SetTension(float Tension);
+			[id(181)] float GetTension();
+			[id(182)] ST_OLE_HANDLE GetFont();
+			[id(183)] VARIANT_BOOL SetXYFormat(BSTR pSign, short Format);
+			[id(184)] short GetXYFormat(BSTR pSign);
+			[id(185)] short GetXYFormat2(short nIndex);
+			[id(186)] long LoadPlugIn(BSTR pFileName, short Type, long Mask);
+			[id(187)] VARIANT_BOOL AppendLegendEx(BSTR pSign, ST_OLE_COLOR BeginNodeColor, ST_OLE_COLOR EndNodeColor, ST_OLE_COLOR SelectedNodeColor, short NodeModeEx);
+			[id(188)] VARIANT_BOOL GetLegendEx(BSTR pSign, ST_OLE_COLOR* pBeginNodeColor, ST_OLE_COLOR* pEndNodeColor, ST_OLE_COLOR* pSelectedNodeColor, short* pNodeModeEx);
+			[id(189)] VARIANT_BOOL GetLegendEx2(short nIndex, ST_OLE_COLOR* pBeginNodeColor, ST_OLE_COLOR* pEndNodeColor, ST_OLE_COLOR* pSelectedNodeColor, short* pNodeModeEx);
+			[id(190)] long GetSelectedNodeIndex(long Id);
+			[id(191)] VARIANT_BOOL SetSelectedNodeIndex(long Id, long NewNodeIndex);
+			[id(192)] long LoadLuaScript(BSTR pFileName, short Type, long Mask);
+			[id(193)] void SetShortcutKeyMask(long ShortcutKey);
+			[id(194)] long GetShortcutKeyMask();
+			[id(195)] ST_OLE_HANDLE GetFrceHDC();
+			[id(196)] VARIANT_BOOL SetBottomSpace(short Space);
+			[id(197)] short GetBottomSpace();
+			[id(198)] BSTR GetEndTime2();
+			[id(199)] BSTR GetTimeData2(short nCurveIndex, long nIndex);
+			[id(200)] short AddComment(HCOOR_TYPE Time, float Value, short Position, short nBkBitmap, short Width, short Height, ST_OLE_COLOR TransColor, BSTR pComment, ST_OLE_COLOR TextColor, short XOffSet, short YOffSet, VARIANT_BOOL bUpdate);
+			[id(201)] VARIANT_BOOL DelComment(long nIndex, VARIANT_BOOL bAll, VARIANT_BOOL bUpdate);
+			[id(202)] long GetCommentNum();
+			[id(203)] VARIANT_BOOL GetComment(long nIndex, HCOOR_TYPE* pTime, float* pValue, short* pPosition, short* pBkBitmap, short* pWidth, short* pHeight, ST_OLE_COLOR* pTransColor, BSTR* pComment, ST_OLE_COLOR* pTextColor, short* pXOffSet, short* pYOffSet);
+			[id(204)] short SetComment(long nIndex, HCOOR_TYPE Time, float Value, short Position, short nBkBitmap, short Width, short Height, ST_OLE_COLOR TransColor, BSTR pComment, ST_OLE_COLOR TextColor, short XOffSet, short YOffSet, short Mask, VARIANT_BOOL bUpdate);
+			[id(205)] VARIANT_BOOL SwapCommentIndex(long nIndex, long nOldIndex, VARIANT_BOOL bUpdate);
+			[id(206)] VARIANT_BOOL ShowComment(long nIndex, VARIANT_BOOL bShow, VARIANT_BOOL bUpdate);
+			[id(207)] VARIANT_BOOL IsCommentVisiable(long nIndex);
+			[id(208)] void SetEventMask(long Event);
+			[id(209)] VARIANT_BOOL SetFixedZoomMode(short ZoomMode);
+			[id(210)] short GetFixedZoomMode();
+			[id(211)] VARIANT_BOOL FixedZoom(short ZoomMode, short x, short y, VARIANT_BOOL bHoldMode);
+			[id(212)] VARIANT_BOOL SetCommentPosition(short Position);
+			[id(213)] short GetCommentPosition();
+			[id(214)] VARIANT_BOOL GetPixelPoint(HCOOR_TYPE Time, float Value, long* px, long* py);
+			[id(215)] VARIANT_BOOL GetMemInfo(long* pTempBuffSize, long* pAllBuffSize, float* pUseRate, long* pId);
+			[id(216)] VARIANT_BOOL IsCurveClosed(long Id);
+			[id(217)] VARIANT_BOOL GetPosData(short nCurveIndex, long nIndex, long* px, long* py);
+			[id(218)] void EnableHZoom(VARIANT_BOOL bEnable);
+			[id(219)] VARIANT_BOOL SetHZoom(short Zoom);
+			[id(220)] short GetHZoom();
+			[id(221)] VARIANT_BOOL MoveCurveToLegend(long Id, BSTR pSign);
+			[id(222)] VARIANT_BOOL ChangeLegendName(BSTR pFrom, BSTR pTo);
+			[id(223)] VARIANT_BOOL SetAutoRefresh(short TimeInterval, short NumInterval);
+			[id(224)] long GetAutoRefresh();
+			[id(225)] void EnableSelectCurve(VARIANT_BOOL bEnable);
+			[id(226)] void SetToolTipDelay(short Delay);
+			[id(227)] short GetToolTipDelay();
+			[id(228)] VARIANT_BOOL SetLimitOnePageMode(short Mode);
+			[id(229)] short GetLimitOnePageMode();
+			[id(230)] VARIANT_BOOL AddInfiniteCurve(long Id, HCOOR_TYPE Time, float Value, short State, VARIANT_BOOL bUpdate);
+			[id(231)] VARIANT_BOOL DelInfiniteCurve(long Id, VARIANT_BOOL bAll, VARIANT_BOOL bUpdate);
+			[id(233)] VARIANT_BOOL SetGraduationSize(long size);
+			[id(234)] long GetGraduationSize();
+			[id(235)] void SetMouseWheelMode(short Mode);
+			[id(236)] short GetMouseWheelMode();
+			[id(237)] VARIANT_BOOL SetMouseWheelSpeed(short Speed);
+			[id(238)] short GetMouseWheelSpeed();
+			[id(239)] VARIANT_BOOL SetHLegend(BSTR pHLegend);
+			[id(240)] BSTR GetHLegend();
+			[id(DISPID_REFRESH)] void Refresh();
+	};
+
+	//  CST_CurveCtrl 的事件调度接口
+
+	[ 
+		uuid(890BA0F6-1786-4E90-93E9-F3C524E1D0DC)
+	]
+	dispinterface _DST_CurveEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+			[id(1)] void PageChange(long wParam, long lParam);
+			[id(2)] void BeginTimeChange(HCOOR_TYPE NewTime);
+			[id(3)] void BeginValueChange(float NewValue);
+			[id(4)] void TimeSpanChange(double NewTimeSpan);
+			[id(5)] void ValueStepChange(float NewValueStep);
+			[id(6)] void ZoomChange(short NewZoom);
+			[id(7)] void SelectedCurveChange(long NewId);
+			[id(8)] void LegendVisableChange(long nIndex, short State);
+			[id(9)] void SorptionChange(long Id, long nIndex, short State);
+			[id(10)] void CurveStateChange(long Id, short State);
+			[id(11)] void ZoomModeChange(short NewMode);
+			[id(12)] void HZoomChange(short NewZoom);
+			[id(13)] void BatchExportImageChange(long FileNameIndex);
+			[id(DISPID_MOUSEDOWN)] void MouseDown(short Button, short Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+			[id(DISPID_MOUSEMOVE)] void MouseMove(short Button, short Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+			[id(DISPID_MOUSEUP)] void MouseUp(short Button, short Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+	};
+
+	//  CST_CurveCtrl 的类信息
+	[
+		uuid(315E7F0E-6F9C-41A3-A669-A7E9626D7CA0)
+	]
+	coclass ST_Curve
+	{
+		[default] dispinterface _DST_Curve;
+		[default, source] dispinterface _DST_CurveEvents;
+	};
+
+};
