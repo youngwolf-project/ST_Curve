@@ -6,7 +6,7 @@
 #include "ST_CurvePropPage.h"
 #include "afxdialogex.h"
 
-#include <xfunctional>
+#include <functional>
 #ifndef _USING_V110_SDK71_
 #include <VersionHelpers.h>
 #endif // !_USING_V110_SDK71_
