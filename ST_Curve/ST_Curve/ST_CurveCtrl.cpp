@@ -13,18 +13,10 @@
 
 #define LUA_LIB_NAME "Lua_" LUA_VERSION_MAJOR "." LUA_VERSION_MINOR "." LUA_VERSION_RELEASE
 
-#ifdef _DEBUG
-	#ifdef _WIN64
-	#pragma comment(lib, LUA_LIB_NAME "x64d.lib")
-	#else
-	#pragma comment(lib, LUA_LIB_NAME "d.lib")
-	#endif
+#ifdef _WIN64
+#pragma comment(lib, "..\\..\\lua_5.3.4\\" LUA_LIB_NAME "x64.lib")
 #else
-	#ifdef _WIN64
-	#pragma comment(lib, LUA_LIB_NAME "x64.lib")
-	#else
-	#pragma comment(lib, LUA_LIB_NAME ".lib")
-	#endif
+#pragma comment(lib, "..\\..\\lua_5.3.4\\" LUA_LIB_NAME ".lib")
 #endif
 
 #ifdef _DEBUG
