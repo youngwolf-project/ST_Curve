@@ -17,6 +17,7 @@ library ST_CurveLib
 	importlib(STDTYPE_TLB);
 
 	//  CST_CurveCtrl 的主调度接口
+	// methods 74 83 在开源之后被删除，但id号仍然保留以保持兼容性
 	[ 
 		uuid(B8F65D5C-CA0B-494F-8B39-6CB7E10A2DD4)
 	]

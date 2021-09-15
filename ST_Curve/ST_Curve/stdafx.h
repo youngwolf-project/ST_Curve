@@ -31,7 +31,7 @@
 #include <atlimage.h>
 #include <Wininet.h>
 #include <atlwin.h>
-#include "..\..\lua_5.3.5\lua.hpp"
+#include "..\..\lua_5.4.3\lua.hpp"
 
 // 如果不希望使用 MFC 数据库类，
 //  请删除下面的两个包含文件
